@@ -114,6 +114,7 @@ $SPEC{add_line_number_comments_to_perl_source} = {
         },
         column => {
             schema => 'posint*',
+            description => 'Currently not implemented',
             default => 80,
         },
         every => {
