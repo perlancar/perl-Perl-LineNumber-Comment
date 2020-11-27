@@ -147,8 +147,16 @@ sub add_line_number_comments_to_perl_source {
 
 =head1 SYNOPSIS
 
+In your code:
+
+ use File::Slurper qw(read_text);
  use Perl::LineNumber::Comment qw(add_line_number_comments_to_perl_source);
- print add_line_number_comments_to_perl_source(<<'EOF');
+
+ my $source = read_text('sample.pl');
+ print add_line_number_comments_to_perl_source(source => $source);
+
+Content of F<sample.pl>:
+
  #!/usr/bin/env perl
 
  use 5.010001;
@@ -160,11 +168,11 @@ sub add_line_number_comments_to_perl_source {
  print "A multiline
  string";
 
- print <<EOF2;
+ print <<EOF;
  A heredoc (not shown in node->content).
 
  Line three.
- EOF2
+ EOF
 
  exit 0;
 
@@ -172,9 +180,8 @@ sub add_line_number_comments_to_perl_source {
  one
  two
  three
- EOF
 
-will print:
+Output of code:
 
  #!/usr/bin/env perl
 
